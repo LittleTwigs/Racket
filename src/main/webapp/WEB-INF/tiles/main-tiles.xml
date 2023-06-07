@@ -16,13 +16,24 @@
 		<put-attribute name="footer" value="/WEB-INF/footer.jsp"/>
 	</definition>
 	
+	<definition name="mainTemplate2" 
+			template="/WEB-INF/layout/mainLayout2.jsp">
+		<put-attribute name="header" value="/WEB-INF/header.jsp"/>
+		<put-attribute name="side" value="/WEB-INF/side.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/mainpage.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/footer.jsp"/>
+	</definition>
+	
+	
 	<definition name="index" extends="indexTemplate">
 	</definition>
 	<definition name="main" extends="mainTemplate">
 	</definition>
 	
-	<definition name="register" extends="mainTemplate">
-	<put-attribute name="content" value="/WEB-INF/sign-up.jsp"/>
+	<definition name="reservation" extends="mainTemplate">
+	<put-attribute name="content" value="/WEB-INF/reservation.jsp"/>
 	</definition>
-	
+	<definition name="blacklist" extends="mainTemplate">
+	<put-attribute name="content" value="/WEB-INF/blacklist.jsp"/>
+	</definition>
 </tiles-definitions>
