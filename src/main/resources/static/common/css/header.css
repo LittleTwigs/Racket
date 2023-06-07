@@ -23,11 +23,13 @@ a {
     justify-content: space-between;
     align-items: center;
     background-color: #4C6A96;
-    color:white;
+    color: white;
     padding: 8px 12px;
 }
 .nav_logo{
-	relative;
+	display:flex;
+	align-items: center;
+	position: relative;
 }
 .nav_logo img{
   height: 70px;
@@ -54,7 +56,7 @@ a {
 }
 .nav_links {
     list-style: none;
-    display: flex;
+    display: absolute;
     color:white;
     padding-left: 0;
 }
