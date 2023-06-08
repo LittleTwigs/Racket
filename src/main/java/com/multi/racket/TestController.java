@@ -14,13 +14,31 @@ public class TestController {
 	// 구장 예약하기
 	@GetMapping("/reservation")
 	public String reservation() {
-		return "reservation";
+		return "thymeleaf/manager/reservation";
+	}
+
+	// 구장 예약하기_참가자
+	@GetMapping("/reservation_p")
+	public String reservationParticipant() {
+		return "thymeleaf/manager/reservation_participant";
+	}
+
+	// 강습하기
+	@GetMapping("/lesson")
+	public String lesson() {
+		return "thymeleaf/manager/lesson";
+	}
+
+	// 강습하기_참가자
+	@GetMapping("/lesson_p")
+	public String lessonParticipant() {
+		return "thymeleaf/manager/lesson_participant";
 	}
 	
 	// 관리자페이지 - 블랙리스트
 	@GetMapping("/blacklist")
 	public String blacklist() {
-		return "blacklist";
+		return "thymeleaf/manager/blacklist";
 	}
 	
 	// 회원가입 폼
