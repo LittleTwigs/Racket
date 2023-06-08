@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+table {
+  		border-collapse: separate;
+ 		border-spacing: 50px;
+	  }
+	  
+.container-fluid {
+	margin-top: 11%;
+	margin-left: 6%;
+}	  

@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{thymeleaf/layout/mainLayout}">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="common/css/inquirywrite.css">   
-<link rel="stylesheet" href="common/css/styles.css"/>
-<style type="text/css">
-	span {
-		margin-right: 10px;
-	}
-</style>
 </head>
 <body>
-	<div class="container-fluid">
+	<th:block layout:fragment="content">
+		<div class="container-fluid">
 		<div class="card">
 			<div class="card-body">
 				<div style="margin-bottom: 60px;">
@@ -35,9 +31,7 @@
 					</table>
 				</div>
 				<br/>
-				<div style="margin-bottom: 70px; margin-left: 50px">
-					내용
-				</div>
+				<div style="margin-left: 50px; margin-bottom: 40px">내용</div>
 				<div align="right">
 					<span>
 						<button type="submit" style="border-radius: 6px">목록</button>
@@ -55,5 +49,6 @@
 			</div>
 		</div>
 	</div>
+	</th:block>
 </body>
 </html>
