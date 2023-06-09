@@ -22,4 +22,14 @@ public class InquiryController {
 	public String inqread() {
 		return "thymeleaf/inq/inquiryread";
 	}
+	
+	@RequestMapping("/admin_user")
+	public String user() {
+		return "thymeleaf/inq/admin_user";
+	}
+	
+	@RequestMapping("/admin_register")
+	public String register() {
+		return "thymeleaf/inq/admin_register";
+	}
 }
