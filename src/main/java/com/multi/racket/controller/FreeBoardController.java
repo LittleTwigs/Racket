@@ -1,18 +1,25 @@
 package com.multi.racket.controller;
 
+import org.springframework.data.domain.Pageable;
+
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 @Controller
 public class FreeBoardController {
 	
 	//나중에 ModelAndView로 받아와서 공유해서 보여줘야함	
-	@RequestMapping("/free") //jsp
-	public String showFreeBoard(Model model) {
+	@RequestMapping("/free")
+	public String showFreeBoard(Model model, 
+			@PageableDefault(page = 0, size = 10, sort = "fb_no", direction = Direction.DESC) Pageable pageable) {
 		model.addAttribute("freeboardlist", "공유된 데이터 불러오기");
-		return "thymeleaf/free_board"; //tiles;
+		//model.addAttribute("boardList", 보드서비스.보드리스트);
+		return "thymeleaf/free_board";
 	}
 	
 	@RequestMapping("/recruitment")
@@ -47,5 +54,10 @@ public class FreeBoardController {
 		return "redirect:/racket/free_read?bno="; // + read.getBno();
 	}
 	
+//	@PostMapping("/announcement.insert")
+//	public String announceWrite(AnnounceDTO announce) {
+//		System.out.println(announce.getFb_title());
+//		return "";
+//	}
 	
 }	
