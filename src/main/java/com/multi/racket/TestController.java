@@ -8,35 +8,43 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TestController {
 	@GetMapping("/main")
 	public String index() {
-		return "thymeleaf/index";
+		return "thymeleaf/main/mainpage";
 	}
 
-	// 구장 예약하기
-	@GetMapping("/reservation")
-	public String reservation() {
-		return "reservation";
-	}
-	
 	// 관리자페이지 - 블랙리스트
-	@GetMapping("/blacklist")
-	public String blacklist() {
-		return "blacklist";
+
+		@GetMapping("/blacklist")
+		public String blacklist() {
+			return "thymeleaf/manager/blacklist";
+		}
+		
+		// 구장 예약하기
+		@GetMapping("/reservation")
+		public String reservation() {
+			return "thymeleaf/manager/reservation";
+		}
+		
+		// 구장 예약 참여하기
+		@GetMapping("/reservation_p")
+		public String reservationParticipant() {
+			return "thymeleaf/manager/reservation_participant";
+		}
+		
+		// 강습 예약하기
+		@GetMapping("/lesson")
+		public String lesson() {
+			return "thymeleaf/manager/lesson";
+		}
+		
+		// 강습 예약 참여하기
+		@GetMapping("/lesson_p")
+		public String lessonParticipant() {
+			return "thymeleaf/manager/lesson_participant";
+		}
+		
+	@GetMapping("/test1")
+	public String test1() {
+		return "thymeleaf/include/calendar";
 	}
 	
-	// 회원가입 폼
-		@GetMapping("/next")
-		public String next() {
-			return "register";
-		}
-	
-		// 회원가입 동의
-		@GetMapping("/signagree")
-		public String signagree() {
-			return "/sign-agreement";
-		}
-		// 회원가입 인증
-		@RequestMapping("/signauth")
-		public String signaauth() {
-			return "signAuth";
-		}
 }

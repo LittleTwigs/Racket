@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+body {
+	margin: 20%;
+}
+
+.details {
+    display: none;
+    background-color: #e7e7e7;
+    border: 1px solid thin;
+    border-radius: 15px;
+    height:160px;
+    overflow: auto;
+}
+
+.details.show {
+    display: block;
+}
+
+.all-agree {
+	padding: 10px;
+	border: 1px solid gray;
+}
