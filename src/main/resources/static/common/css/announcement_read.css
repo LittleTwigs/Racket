@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /* 바디테그 전체에 박스를 입힘 */
-.recruitment_read_body_container {
+.announcement_read_body_container {
 	width: 75%; /* 컨테이너의 너비 */
 	/* margin: 0 auto; 가운데 정렬을 위해 왼쪽/오른쪽 마진을 auto로 설정 */
 	border: 1px solid #ccc; /* 컨테이너에 테두리 설정 */
@@ -11,7 +11,6 @@
 	margin-top: 8rem;
 	margin-right: 2rem;
 	margin-bottom: 1.5rem;
-	
 	/* 모든글씨가 갑자기 허연색으로떠서.... */
 	color: black;
 	
@@ -20,7 +19,7 @@
 }
 
 /* 등록취소버튼 가운데정렬 */
-.recruitment_btn_wrap {
+.announcement_btn_wrap {
 	justify-content: center;
   	align-items: center;
   	text-align: center;
@@ -29,41 +28,45 @@
   	margin-top: 20px;
 }
 
-.recruitment_board_title {
+.list_btn {
+	float: right;
+}
+
+.announcement_title {
 	font-size: 2rem;
 }
 
-.recruitment_board_view {
+.announcement_view {
 	width: 100%;
 	border-top: 2px solid black;
 	margin-top: 10px;
 }
 
-.recruitment_board_view .recruitment_title {
+.announcement_view .announcement_title {
 	padding: 20px 15px;
 	border-bottom: 1px dashed #ddd;
 	font-size: 1.5rem;
 }
 
-.recruitment_board_view .recruitment_info {
+.announcement_view .announcement_info {
 	padding: 15px;
 	border-bottom: 1px solid #999;
 	margin-top: 20px;
 	/* font-size: 0; */
 }
 
-.recruitment_board_view .recruitment_info dl {
+.announcement_view .announcement_info dl {
 	position: relative;
 	display: inline-block;
 	padding: 0 20px;
 }
 
-.recruitment_board_view .recruitment_info dl:first-child {
+.announcement_view .announcement_info dl:first-child {
 	padding-left: 0;
 }
 
 
-.recruitment_board_view .recruitment_info dl::before {
+.announcement_view .announcement_info dl::before {
 	content: "";
 	position: absolute;
 	top: 1px;
@@ -74,26 +77,26 @@
 	background: #ddd;
 }
 
-.recruitment_board_view .recruitment_info dl:first-child::before {
+.announcement_view .announcement_info dl:first-child::before {
 	display: none;
 }
 
 
-.recruitment_board_view .recruitment_info dl dt, .recruitment_board_view .recruitment_info dl dd {
+.announcement_view .announcement_info dl dt, .announcement_view .announcement_info dl dd {
 	display: inline-block;
 	font-size: 1.1rem;
 }
 
-.recruitment_board_view .recruitment_info dl dt {
+.announcement_view .announcement_info dl dt {
 	
 }
 
-.recruitment_board_view .recruitment_info dl dd {
+.announcement_view .announcement_info dl dd {
 	margin-left: 10px;
 	color: #777;
 }
 
-.recruitment_board_view .recruitment_cont {
+.announcement_view .announcement_cont {
 	padding: 15px;
 	border-bottom: 1px solid black;
 	line-height: 160%;

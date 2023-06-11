@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /* 바디테그 전체에 박스를 입힘 */
-.free_read_body_container {
+.bulletin_read_body_container {
 	width: 75%; /* 컨테이너의 너비 */
 	/* margin: 0 auto; 가운데 정렬을 위해 왼쪽/오른쪽 마진을 auto로 설정 */
 	border: 1px solid #ccc; /* 컨테이너에 테두리 설정 */
@@ -11,6 +11,7 @@
 	margin-top: 8rem;
 	margin-right: 2rem;
 	margin-bottom: 1.5rem;
+	
 	/* 모든글씨가 갑자기 허연색으로떠서.... */
 	color: black;
 	
@@ -19,7 +20,7 @@
 }
 
 /* 등록취소버튼 가운데정렬 */
-.free_btn_wrap {
+.bulletin_btn_wrap {
 	justify-content: center;
   	align-items: center;
   	text-align: center;
@@ -28,45 +29,41 @@
   	margin-top: 20px;
 }
 
-.list_btn {
-	float: right;
-}
-
-.free_board_title {
+.bulletin_board_title {
 	font-size: 2rem;
 }
 
-.free_board_view {
+.bulletin_board_view {
 	width: 100%;
 	border-top: 2px solid black;
 	margin-top: 10px;
 }
 
-.free_board_view .free_title {
+.bulletin_board_view .bulletin_title {
 	padding: 20px 15px;
 	border-bottom: 1px dashed #ddd;
 	font-size: 1.5rem;
 }
 
-.free_board_view .free_info {
+.bulletin_board_view .bulletin_info {
 	padding: 15px;
 	border-bottom: 1px solid #999;
 	margin-top: 20px;
 	/* font-size: 0; */
 }
 
-.free_board_view .free_info dl {
+.bulletin_board_view .bulletin_info dl {
 	position: relative;
 	display: inline-block;
 	padding: 0 20px;
 }
 
-.free_board_view .free_info dl:first-child {
+.bulletin_board_view .bulletin_info dl:first-child {
 	padding-left: 0;
 }
 
 
-.free_board_view .free_info dl::before {
+.bulletin_board_view .bulletin_info dl::before {
 	content: "";
 	position: absolute;
 	top: 1px;
@@ -77,26 +74,26 @@
 	background: #ddd;
 }
 
-.free_board_view .free_info dl:first-child::before {
+.bulletin_board_view .bulletin_info dl:first-child::before {
 	display: none;
 }
 
 
-.free_board_view .free_info dl dt, .free_board_view .free_info dl dd {
+.bulletin_board_view .bulletin_info dl dt, .bulletin_board_view .bulletin_info dl dd {
 	display: inline-block;
 	font-size: 1.1rem;
 }
 
-.free_board_view .free_info dl dt {
+.bulletin_board_view .bulletin_info dl dt {
 	
 }
 
-.free_board_view .free_info dl dd {
+.bulletin_board_view .bulletin_info dl dd {
 	margin-left: 10px;
 	color: #777;
 }
 
-.free_board_view .free_cont {
+.bulletin_board_view .bulletin_cont {
 	padding: 15px;
 	border-bottom: 1px solid black;
 	line-height: 160%;

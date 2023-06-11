@@ -3,10 +3,8 @@
 strong {
 	color: black;
 }
-
-
 /* 바디테그 전체에 박스를 입힘 */
-.free_body_container {
+.bulletin_body_container {
 	width: 75%; /* 컨테이너의 너비 */
 	/* margin: 0 auto; 가운데 정렬을 위해 왼쪽/오른쪽 마진을 auto로 설정 */
 	border: 1px solid #ccc; /* 컨테이너에 테두리 설정 */
@@ -23,28 +21,28 @@ strong {
 }
 
 /* 상단에 있는 카테고리랑 검색바 */
-.free_board_select {
+.bulletin_board_select {
 	margin-top: 30px;
 }
 /* 자유게시판 운동모집게시판 양옆으로 붙게 */
-.free_board_category li {
+.bulletin_board_category li {
 	display: inline;
 	margin-right: 10px;
 	font-size: 15pt;
 }
 
-.free_board_content strong {
+.bulletin_board_content strong {
 	font-size: 2rem;
 }
 
 /* 검색버튼 */
-.free_board_top {
+.bulletin_board_top {
 	display: inline-block;
 	font-size: 0;
 	margin-top: 20px;
 }
 
-.free_board_top input {
+.bulletin_board_top input {
 	width: 90%;
 	height: 35px;
 	margin-bottom: 20px;
@@ -56,36 +54,36 @@ strong {
   	margin-top: 5%;
 }
 
-.free_board_top button {
+.bulletin_board_top button {
 	width: 50px;
 	height: 35px;
 	margin-bottom: 20px;
-	font-size: 2rem;
+	font-size: 1rem;
 	border: 1px solid #000000;
 	color: #000;
 	border-top-right-radius: 7px;
   	border-bottom-right-radius: 7px;
 }
 
+
 /* 카테고리와 글 제목 하이퍼링크 밑줄 안 보이게 */
-.free_board_category a {
+.bulletin_board_category a {
 	text-decoration: none;
 	color: inherit;
 	color: black; /* 링크의 텍스트 색상을 검은색으로 유지 */
 }
 
-.free_board_content a {
+.bulletin_board_content a {
 	text-decoration: none;
 	color: inherit;
 	color: black; /* 링크의 텍스트 색상을 검은색으로 유지 */
-	font-size: 1rem;
 }
 
-.free_board_category a:hover {
+.bulletin_board_category a:hover {
 	color: black; /* 링크의 텍스트 색상을 검은색으로 유지 */
 }
 
-.free_board_content a:hover {
+.bulletin_board_content a:hover {
 	color: black; /* 링크의 텍스트 색상을 검은색으로 유지 */
 	border-color: black;
 }
@@ -94,9 +92,8 @@ strong {
   border-color: black;
 }
 
-
 /*  */
-.free_board_category {
+.bulletin_board_category {
 	display: flex;
 	align-items: center;
 	margin-left: 10px;
@@ -119,7 +116,6 @@ thead th {
 
 tbody th, tbody td {
 	border-bottom: 1px solid black;
-	
 }
 
 /* thead 위쪽에 선을 추가. */
@@ -133,7 +129,7 @@ thead tr th {
 
 
 /* 글쓰기 버튼(하이퍼링크) */
-.free_write a{	
+.bulletin_write a{	
 	/* 하이퍼링크 밑줄 안 보이게, 색깔 검정색 */
 	text-decoration: none;
 	color: inherit;
@@ -141,7 +137,7 @@ thead tr th {
 	text-align: center;
 }
 
-.free_write a:hover {
+.bulletin_write a:hover {
 	color: white; /* 링크의 텍스트 색상을 검은색으로 유지 */
 }
 
@@ -149,13 +145,13 @@ thead tr th {
 
 
 /*  */
-.free_write {
+.bulletin_write {
 	text-align: center;
 	margin-top: 10px;
 }
 
 /* 글쓰기 버튼 테스트 */
-.free_write_button {
+.bulletin_write_button {
 	background-color: black;
 	border: 2px solid #000000;
 	color: #333;
@@ -169,27 +165,47 @@ thead tr th {
 	border-radius: 4px;
 }
 
-.free_board_page a:hover {
+/* 페이지버튼 */
+
+.bulletin_board_page {
+	margin-top: 30px;
+	text-align: center;
+	font-size: 0;
+}
+.bulletin_board_page a {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	border: 1px solid #ddd;
+	border-left: 0;
+	vertical-align: middle;
+	text-decoration: none;
+	color: #000;
+	line-height: 100%;
+	box-sizing: border-box;
+}
+
+.bulletin_board_page a:hover {
 	color: black;
 }
 
-.free_board_page a.button {
+.bulletin_board_page a.button {
 	padding-top: 7px;
 	font-size: 1.2rem;
 }
 
-.free_board_page a.num {
+.bulletin_board_page a.num {
 	padding-top: 6px;
 	font-size: 1.4rem;
 }
 
-.free_board_page a.num.on {
+.bulletin_board_page a.num.on {
 	border-color: #000;
 	background-color: #000;
 	color: #fff;
 	
 }
 
-.free_board_page a:first-child {
+.bulletin_board_page a:first-child {
 	border-left: 1px solid #ddd;
 }
