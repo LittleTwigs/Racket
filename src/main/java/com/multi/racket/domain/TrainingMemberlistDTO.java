@@ -3,6 +3,8 @@ package com.multi.racket.domain;
 import java.sql.Timestamp;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,11 +16,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "matching")
-public class matchingDTO {
+@Table(name = "training_memberlist")
+public class TrainingMemberlistDTO {
 	@Id
-	private int matchNo;
-	private int reservationNo;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int trainingApplyNo;
+	private int trainingNo;
 	private String memberId;
-	private Timestamp matchDate;
+	private Timestamp trainingDate;
 }

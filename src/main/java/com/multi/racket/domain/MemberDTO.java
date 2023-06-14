@@ -19,7 +19,7 @@ import lombok.NonNull;
 @NoArgsConstructor
 @Entity
 @Table(name = "member2")
-public class memberDTO {
+public class MemberDTO {
 	@NonNull
 	@Id
 	private String memberId;

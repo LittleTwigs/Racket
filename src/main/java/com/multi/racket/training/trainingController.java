@@ -8,10 +8,16 @@ public class trainingController {
 	public String lesson() {
 		return "thymeleaf/reservation/training";
 	}
-
+	
+	// 강습 예약하기 등록
+	
+	
 	// 강습 예약 참여하기
 	@GetMapping("/training")
 	public String lessonParticipant() {
 		return "thymeleaf/reservation/training_participant";
 	}
+	
+	// 강습 예약 참여하기 등록
+		
 }

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.multi.racket.domain.memberDTO;
+import com.multi.racket.domain.MemberDTO;
 import com.multi.racket.signup.SignUpService;
 
 @Controller
@@ -40,7 +40,7 @@ public class signupController {
 
 	// insert - 회원등록하기 api
 	@PostMapping("/signup")
-	public String signup(memberDTO member) {
+	public String signup(MemberDTO member) {
 		service.member_insert(member);
 		return "thymeleaf/main/mainpage";
 	}
