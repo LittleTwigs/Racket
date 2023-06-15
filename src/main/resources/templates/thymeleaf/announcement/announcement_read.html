@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{thymeleaf/layout/mainLayout}">
 	<head>
 		<meta charset="UTF-8">
 		<title>상세글 보기</title>
@@ -19,77 +21,71 @@
 		<link href="https://fonts.googleapis.com/css2?family=Aoboshi+One&family=Cherry+Bomb+One&family=Noto+Sans+KR:wght@100;500&family=Oswald:wght@200;400&family=Roboto+Slab:wght@200;500&display=swap" rel="stylesheet">
 		
 		
-		<!-- 헤더 -->
-		<link rel="stylesheet" href="/racket/common/css/header.css">
-    	<style type="text/css"></style>
-		
-		<!-- 푸터 -->
-		<link rel="stylesheet" type="text/css" href="/racket/common/css/footer.css"/>
-		
-		<!-- 사이드바 -->
-		<link rel="stylesheet" href="/racket/common/css/side.css">
-		<script type="text/javascript">
-			function list() {
-				alert("목록으로 넘어갑니다.");
-		    	window.location.href = "/racket/free";
-		    }
-		</script>
+		<!--  -->
+		<th:block layout:fragment="css">
+			<link rel="stylesheet" href="/racket/common/css/announcement.css" />
+		</th:block>
 	</head>
 	<body>
-	<!-- 헤더 -->
-	<th:block th:replace="thymeleaf/include/header :: header"></th:block>
-	<!-- 사이드바 -->
-	<th:block th:replace="thymeleaf/include/side :: side"></th:block>
+	<th:block layout:fragment="content">
 		<div class="announcement_read_body_container">
 			<div class="announcement_read_wrap">
 				<div class="announcement_title">
 					<strong>공지사항</strong>
-					<input type="button" class="list_btn" value="목록" onclick="list()">
+					<form action="/racket/announcement" method="get">
+						<button type="submit">목록</button>
+					</form>
 				</div>
 				<div class="announcement_view_wrap">
 					<div class="announcement_view">
-						<div class="announcement_title">
-							xx구장 시간 변경안내
+						<div class="announcement_title"
+						th:text="${announcement.announcementTitle}">
 						</div>
 						<div class="announcement_info">
 							<dl>
 								<dt>번호</dt>
-								<dd th:text="${freeReadNo}"></dd>
+								<dd th:text="${announcement.announcementNo}"></dd>
 							</dl>
 							<dl>
 								<dt>글쓴이</dt>
-								<dd th:text="${freeReadId}"></dd>
+								<dd th:text="${announcement.memberId}"></dd>
 							</dl>
 							<dl>
 								<dt>작성일</dt>
-								<dd th:text="${freeReadDate}"></dd>
+								<dd th:text="${announcement.announcementDate}"></dd>
 							</dl>
 							<dl>
+								<!-- 조회수처리 해야함 -->
 								<dt>조회</dt>
-								<dd>27</dd>
-							</dl>
-							<dl>
-								<dt>좋아요</dt>
-								<dd>22</dd>
+								<dd th:text="${announcement.announcementViews}"></dd>
 							</dl>
 						</div>
 						<!-- 데이터 받아오기 -->
-						<div class="announcement_cont">
-							xx구장 이용시간이 오전 9시 => 10시로 변경되었습니다.<br/>
-							잘 숙지하시고 이용하시기 바랍니다.
+						<div class="announcement_cont" th:utext="${announcement.announcementContent != null ? announcement.announcementContent : ''}">
+						
+						
 						</div>
-						<form method="post" action="/racket/announcement">
 							<div class="announcement_btn_wrap">
 								<!-- 해당글쓴이와 로그인한 아이디가 같을때만 띄우기 -->
-								<input type="submit" class="delete_btn" value="삭제" onclick="">
-								<input type="submit" class="update_btn" value="수정" onclick="">
+								<form method="post" th:action="@{/announcement_delete}">
+								<input type="hidden" name="announcementNo" th:value="${announcement.announcementNo}" />
+									<button type="submit" onclick="return confirmDelete()">삭제</button>
+								</form>
+								<script>
+    								function confirmDelete() {
+        								var result = confirm("정말 삭제하시겠습니까?");
+        								return result;
+    								}
+								</script>
+								<form method="post" th:action="@{/announcement_update}">
+								<input type="hidden" name="announcementNo" th:value="${announcement.announcementNo}" />
+									<button type="submit">수정</button>
+								</form>
 							</div>
-						</form>
 						</div>
 					</div>
 				</div>
-			<!-- 푸터 -->
-			<th:block th:replace="thymeleaf/include/footer :: footer"></th:block>
-		</div>
+			</div>
+		</th:block>
 	</body>
 </html>
