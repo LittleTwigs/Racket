@@ -4,6 +4,7 @@ package com.multi.racket.bulletin_board;
 
 import java.sql.Date;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,9 +29,9 @@ public class BulletinBoardDTO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int bbNo;
+	@NotNull
 	private String memberId;
 	private String bbTitle;
-	@NotNull
 	private String bbContent;
 	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
 	@Column(nullable = false)
