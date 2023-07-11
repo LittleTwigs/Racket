@@ -34,6 +34,36 @@ td label {
 	vertical-align: middle;
 }
 </style>
+<style type="text/css">
+@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+.btn-header{
+	color: white;
+	margin-top: 30px;
+}
+body {
+    margin: 0;
+    font-family: 'SUITE-Regular';
+}
+input[type="submit"], input[type="reset"], input[type="button"], button, .button{
+	color:white;
+}
+.content{
+	width:80%;
+	margin:auto;
+}
+form{
+	margin:0;
+}
+input [type="text"]{
+	margin-bottom:3px; !important
+}
+
+</style>
 <script th:inline="javascript">
     /* 알림 메시지를 받아서 알림 창을 띄움 */
     var alertMessage = /*[[${alertMessage}]]*/ "";
@@ -56,8 +86,8 @@ $(document).ready(function() {
 		<!-- Wrapper -->
 		<div id="wrapper"></div>
 		<!-- Table -->
-		<div class="col-lg-11"
-			style="position: relative; float: right; margin-top: 130px; margin-left: 150px;">
+		<div class="col-lg-12"
+			style="margin-top: 130px;">
 			<section>
 				<div class="content">
 					<ul class="actions">
@@ -66,49 +96,49 @@ $(document).ready(function() {
 							<form action="/racket/mypage/info" method="post">
 								<input type="hidden" th:value="${session.user.memberId}"
 									name="memberId" id="memberId">
-								<button type="submit">내정보</button>
+								<button type="submit" class="button btn-header">내정보</button>
 							</form>
 						</li>
-						<li><a href="/racket/mypage/change" class="button">정보수정</a></li>
-						<li><a href="/racket/mypage/passChange" class="button">비밀번호변경</a>
+						<li><a href="/racket/mypage/change" class="button btn-header">정보수정</a></li>
+						<li><a href="/racket/mypage/passChange" class="button btn-header">비밀번호변경</a>
 
 						</li>
-						<li><a href="/racket/mypage/cash?pageNo=0" class="button">충전</a></li>
+						<li><a href="/racket/mypage/cash?pageNo=0" class="button btn-header">충전</a></li>
 						<li>
 							<form action="/racket/mypage/reservation" method="post">
 								<input type="hidden" th:value="${session.user.memberId}"
 									name="memberId" id="memberId">
-								<button type="submit">예약보기</button>
+								<button type="submit" class="button btn-header">예약</button>
 							</form>
 						</li>
 						<li>
 							<form action="/racket/mypage/match" method="post">
 								<input type="hidden" th:value="${session.user.memberId}"
 									name="memberId" id="memberId">
-								<button type="submit">매칭보기</button>
+								<button type="submit" class="button btn-header">매칭</button>
 							</form>
 						</li>
 						<li th:if="${session.user.memberAuth == 1}">
 							<form action="/racket/mypage/training" method="post">
 								<input type="hidden" th:value="${session.user.memberId}"
 									name="memberId" id="memberId">
-								<button type="submit">개설강좌보기</button>
+								<button type="submit" class="button btn-header">개설강좌</button>
 							</form>
 						</li>
 						<li>
 							<form action="/racket/mypage/trainingAttend" method="post">
 								<input type="hidden" th:value="${session.user.memberId}"
 									name="memberId" id="memberId">
-								<button type="submit">강습보기</button>
+								<button type="submit" class="button btn-header">강습</button>
 							</form>
 						</li>
 					</ul>
 				</div>
-				<div class="box" style="padding: 20px; margin: 40px;"
+				<div class="box" style="margin-left:200px;"
 					th:text="${session.user.memberId}+'님의 총 강습 수입은 '+${totalIncome}+'원입니다.'">
 				</div>
 			</section>
-			<div class="box">
+			<div class="box" style="margin-left:200px;">
 				<div class="table-wrapper">
 					<table>
 						<thead>

@@ -47,7 +47,12 @@ public class InquiryPageController {
 		model.addAttribute("member", member);
 		model.addAttribute("inquirylist", list);
 		model.addAttribute("totalPageNumber", totalPageNumber);
-		return "thymeleaf/inq/inquiryboard_admin";
+		// 수정
+		if (member != null && member.getMemberAuth().equals(2)) {
+			return "thymeleaf/inq/inquiryboard_admin";
+		} else {
+			return "thymeleaf/error/access_denied";
+		}
 	}
 
 	@GetMapping("/inquiry/search")
@@ -64,10 +69,10 @@ public class InquiryPageController {
 		model.addAttribute("keyword", keyword);
 		return "thymeleaf/inq/inquiryboard";
 	}
-	
+
 	@GetMapping("/inquiry/search/admin")
-	public String searchinq_admin(Model model, @RequestParam("pageNo") String pageNo, @RequestParam("keyword") String keyword,
-			HttpSession session) {
+	public String searchinq_admin(Model model, @RequestParam("pageNo") String pageNo,
+			@RequestParam("keyword") String keyword, HttpSession session) {
 		System.out.println(keyword);
 		PageDTO page = service.searchinq(Integer.parseInt(pageNo), keyword);
 		List<InquiryDTO> list = page.getList();
@@ -77,7 +82,12 @@ public class InquiryPageController {
 		model.addAttribute("inquirylist", list);
 		model.addAttribute("totalPageNumber", totalPageNumber);
 		model.addAttribute("keyword", keyword);
-		return "thymeleaf/inq/inquiryboard_admin";
+		// 수정
+		if (member != null && member.getMemberAuth().equals(2)) {
+			return "thymeleaf/inq/inquiryboard_admin";
+		} else {
+			return "thymeleaf/error/access_denied";
+		}
 	}
 
 }

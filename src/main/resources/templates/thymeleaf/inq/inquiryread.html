@@ -38,12 +38,16 @@
 						<table style="width: 1000px; height: 150px">
 							<tr>
 								<th width="100px">제목</th>
-								<td><span th:text="${inquiry.inqTitle }" style="border-right-style: solid; border-right-color: black; padding-right: 100px;"></span></td>
-								<td style="text-align: left;"><span th:text="${inquiry.inqDate}"></span></td>
+								<td><span th:text="${inquiry.inqTitle }"></span></td>
+								<td style="text-align: left;"></td>
 							</tr>
 							<tr>
 								<th width="100px">작성자</th>
 								<td><span th:text="${inquiry.memberId}"></span></td>
+							</tr>
+							<tr>
+								<th width="100px">작성일</th>
+								<td><span th:text="${inquiry.inqDate}"></span></td>
 							</tr>
 							<tr>
 								<th width="100px">분류</th>

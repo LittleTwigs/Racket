@@ -38,7 +38,8 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="/racket/common/assets/css/bootstrap.min.css">
-
+<link rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 <!-- Style -->
 <link rel="stylesheet" href="/racket/common/assets/css/style.css">
 
@@ -47,6 +48,21 @@
     color: red;
     font-size: 12px;
     margin-top: 5px;
+}
+.swiper-slide{
+	height:500px;
+	Display: Flex;
+	justify-content: center;
+}
+@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+body {
+    margin: 0;
+    font-family: 'SUITE-Regular';
 }
 </style>
 
@@ -159,7 +175,7 @@
 			<div class="swiper mySwiper">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide" th:each="file : ${stadium.files}">
-						<img th:src="${file.fileStorename[0]}" alt="Stadium Image">
+						<img th:src="@{'/download/racket/' + ${file.fileStorename}}" alt="Stadium Image" class="stadiumImg">
 					</div>
 				       <div th:if="${stadium.files.size() == 0}">
 				           <img src="/racket/images/reservationPark.jpg" alt="Alternative Image">
@@ -213,7 +229,8 @@
 	<script src="/racket/common/assets/js/util.js"></script>
 	<script src="/racket/common/assets/js/main.js"></script>
 	<script src="/racket/common/assets/js/scroll.js"></script>
-
+	<script type="text/javascript"
+			src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	<!-- Note: Only needed for demo purposes. Delete for production sites. -->
 	<script src="/racket/common/assets/js/demo.js"></script>
 
@@ -224,6 +241,24 @@
 	<script src="/racket/common/assets/js/bootstrap.min.js"></script>
 	<script src="/racket/common/assets/js/rome.js"></script>
 	<script src="/racket/common/assets/js/main.js"></script>
+	<script type="text/javascript">
+			var swiper = new Swiper(".mySwiper", {
+			    spaceBetween : 30,
+			    centeredSlides : true,
+			    autoplay : {
+			        delay : 2500,
+			        disableOnInteraction : false,
+			    },
+			    pagination : {
+			        el : ".swiper-pagination",
+			        clickable : true,
+			    },
+			    navigation : {
+			        nextEl : ".swiper-button-next",
+			        prevEl : ".swiper-button-prev",
+			    },
+			});
+			</script>
 </div>
 </th:block>
 </body>

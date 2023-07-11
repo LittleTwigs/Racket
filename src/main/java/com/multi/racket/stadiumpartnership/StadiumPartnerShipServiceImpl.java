@@ -82,5 +82,20 @@ public class StadiumPartnerShipServiceImpl implements StadiumPartnerShipService 
 		dao.addcourthour(hours, court);
 	}
 
+	@Override
+	public StadiumcourtDTO createNewStadiumCourt(int courtNo, String courtName, int stadiumNo) {
+		return dao.createNewStadiumCourt(courtNo, courtName, stadiumNo);
+	}
+
+	@Override
+	public StadiumcourtDTO addcourt(int stadiumNo, StadiumcourtDTO court) {
+		return dao.addcourt(stadiumNo, court);
+	}
+
+	@Override
+	public CourtoperatinghoursDTO addcourthour(CourtOperatingHoursListDTO hours, StadiumcourtDTO court) {
+		return dao.addcourthour(hours, court);
+	}
+
 
 }

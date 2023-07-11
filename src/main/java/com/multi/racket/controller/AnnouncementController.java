@@ -60,13 +60,20 @@ public class AnnouncementController {
 	// 페이징 자동처리
 	// 관리자
 	@GetMapping("/pagingdata/announcement/admin")
-	public String announcementPage_admin(Model model) {
+	public String announcementPage_admin(Model model, HttpSession session) {
+		MemberDTO member = (MemberDTO) session.getAttribute("user");
 		int pageSize = 10; // 페이지 당 공지사항 수 // 추가
 		AnnouncementDTO announcelist = (AnnouncementDTO) announcementService.announcementlist(0); // 0추가
 		long totalPages = announcementService.getTotalPages(pageSize); //
 		model.addAttribute("announcementlist", announcelist);
 		model.addAttribute("totalPages", totalPages); //
-		return "thymeleaf/announcement/announcement";
+
+		// 관리자 아니면 주소창으로도 못 들어가게..
+		if (member != null && member.getMemberAuth().equals(2)) {
+			return "thymeleaf/announcement/announcement_admin";
+		} else {
+			return "thymeleaf/error/access_denied";
+		}
 	}
 
 	// 공지사항 페이지 - 공지사항 리스트
@@ -141,7 +148,12 @@ public class AnnouncementController {
 			model.addAttribute("isAdmin", true);
 		}
 
-		return "thymeleaf/announcement/announcement_admin";
+		// 관리자 아니면 주소창으로도 못 들어가게..
+		if (member != null && member.getMemberAuth().equals(2)) {
+			return "thymeleaf/announcement/announcement_admin";
+		} else {
+			return "thymeleaf/error/access_denied";
+		}
 	}
 
 	// 관리자
@@ -266,10 +278,15 @@ public class AnnouncementController {
 		}
 
 		model.addAttribute("announcement", announcement);
-//		return view;
-		return "thymeleaf/announcement/announcement_read_admin";
+
+		if (member != null && member.getMemberAuth().equals(2)) {
+			return "thymeleaf/announcement/announcement_read_admin";
+		} else {
+			return "thymeleaf/error/access_denied";
+		}
 	}
 
+	// 등록도 관리자
 	// 게시글 등록 페이지
 	@GetMapping("/announcement_write")
 	public String announcementWrite(Model model, HttpSession session) {
@@ -280,8 +297,7 @@ public class AnnouncementController {
 			model.addAttribute("id", id);
 			return "thymeleaf/announcement/announcement_write";
 		} else {
-			// 로그인되지 않은 경우에 대한 처리
-			return "redirect:/login"; // 로그인 페이지로 리다이렉트
+			return "thymeleaf/error/access_denied";
 		}
 	}
 
@@ -296,11 +312,16 @@ public class AnnouncementController {
 	// 관리자
 	// 공지사항 수정 페이지로 이동
 	@GetMapping("/announcement_update/{announcementNo}")
-	public String showUpdateForm(@PathVariable("announcementNo") int announcementNo, Model model) {
+	public String showUpdateForm(@PathVariable("announcementNo") int announcementNo, Model model, HttpSession session) {
+		MemberDTO member = (MemberDTO) session.getAttribute("user");
 		// 공지사항 수정을 위해 해당 공지사항 정보를 가져온다
 		AnnouncementDTO updatedata = announcementService.getAnnouncement(announcementNo);
 		model.addAttribute("updatedata", updatedata);
-		return "thymeleaf/announcement/announcement_update";
+		if (member != null && member.getMemberAuth().equals(2)) {
+			return "thymeleaf/announcement/announcement_update";
+		} else {
+			return "thymeleaf/error/access_denied";
+		}
 	}
 
 	// 관리자
@@ -334,8 +355,12 @@ public class AnnouncementController {
 		if (member != null && member.getMemberId().equals("admin")) {
 			model.addAttribute("isAdmin", true);
 		}
-		return "thymeleaf/announcement/announcement_search_admin";
-
+		
+		if (member != null && member.getMemberAuth().equals(2)) {
+			return "thymeleaf/announcement/announcement_search_admin";
+		} else {
+			return "thymeleaf/error/access_denied";
+		}
 	}
 
 }

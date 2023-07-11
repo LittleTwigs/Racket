@@ -55,3 +55,11 @@ select[readonly] {
   background-color: #ddd;
   pointer-events: none;
 }
+.btn-header{
+	background-color: #154c43;
+	color:white;
+	
+}
+.btn-header:hover{
+	background-color: #1F7C6C;
+}

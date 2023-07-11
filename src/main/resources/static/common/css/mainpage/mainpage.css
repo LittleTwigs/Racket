@@ -11,6 +11,10 @@ div[class="container"] {
 	justify-content: center;
 	text-align: center; */
 }
+.carousel-inner{
+	height:600px;
+	
+}
 .flex-container {
 	display: flex;
 }
@@ -148,6 +152,7 @@ div[class="calendar"]>tr>td {
 
 .stadiumname {
 	font-weight: bold;
+	text-decoration: none;
 }
 /* 달력 전체 스타일 */
 .calendar {

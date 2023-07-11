@@ -15,21 +15,27 @@ import com.multi.racket.dto.StadiumCourtListDTO;
 import com.multi.racket.repository.CourtOperatingHoursRepository;
 import com.multi.racket.repository.StadiumCourtRepository;
 import com.multi.racket.repository.StadiumFileRepository;
+import com.multi.racket.repository.StadiumRepository;
 @Repository
 public class StadiumPartnerShipDAOImpl implements StadiumPartnerShipDAO {
 	private StadiumPartnerShipRepository repository;
 	private StadiumFileRepository filerepository;
 	private StadiumCourtRepository courtrepository;
 	private CourtOperatingHoursRepository hourrepository;
+	private StadiumRepository stadiumrepository;
 	@Autowired
 	public StadiumPartnerShipDAOImpl(StadiumPartnerShipRepository repository, StadiumFileRepository filerepository,
-			StadiumCourtRepository courtrepository, CourtOperatingHoursRepository hourrepository) {
+			StadiumCourtRepository courtrepository, CourtOperatingHoursRepository hourrepository,
+			StadiumRepository stadiumrepository) {
 		super();
 		this.repository = repository;
 		this.filerepository = filerepository;
 		this.courtrepository = courtrepository;
 		this.hourrepository = hourrepository;
+		this.stadiumrepository = stadiumrepository;
 	}
+
+
 
 	@Override
 	public StadiumDTO partnership_insert(StadiumDTO associate) {
@@ -142,6 +148,19 @@ public class StadiumPartnerShipDAOImpl implements StadiumPartnerShipDAO {
 		}
 		return null;
 	}
+	
+	 @Override
+	 public StadiumcourtDTO createNewStadiumCourt(int courtNo, String courtName, int stadiumNo) {
+	        // StadiumRepository 를 사용해서 StadiumDTO 를 가져옵니다.
+	        StadiumDTO stadiumDTO = stadiumrepository.findById(stadiumNo)
+	                .orElseThrow(() -> new RuntimeException("stadium not found"));
+
+	        // StadiumcourtDTO 생성자를 이용해서 새로운 StadiumcourtDTO 를 만듭니다.
+	        StadiumcourtDTO stadiumcourtDTO = new StadiumcourtDTO(courtNo, courtName, stadiumDTO);
+
+	        // StadiumcourtDTO 를 저장합니다.
+	        return courtrepository.save(stadiumcourtDTO);
+	    }
 
 	
 

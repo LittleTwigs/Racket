@@ -1,17 +1,18 @@
+
 @font-face {
-    font-family: 'ONE-Mobile-POP';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
-    font-weight: normal;
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
     font-style: normal;
+}
+body {
+    margin: 0;
+    font-family: 'SUITE-Regular';
 }
 h1{
     padding: 0 auto;
     margin: 0 auto;
-}
-body {
-    margin: 0;
-    font-family: 'ONE-Mobile-POP';
-}
+}z
 a {
     text-decoration: 0;
     color: white;
@@ -24,7 +25,7 @@ a {
     justify-content: space-between;
     align-items: center;
     background-color: #134C43;
-    color:#FFFDE1;
+    color:white;
     padding: 8px 12px;
 }
 .nav_logo{
@@ -158,12 +159,11 @@ height:50px;
 }
 .rectangle1 h1{
 	padding-top:12px;
-    color:#FFFDE1;
+    color:white;
 	text-align: center;
 	justify-content: center;
-	color:white;
 	font-size: 16pt;
-	font-family: ONE-Mobile-POP;
+	font-family: 'SUITE-Regular';
 }
 .rectangle2{
   height: 100%;
@@ -179,7 +179,7 @@ height:50px;
 	justify-content: center;
 	color:white;
 	font-size: 16pt;
-	font-family: ONE-Mobile-POP;
+	font-family: 'SUITE-Regular';
 }
 .rectangle3{
   height: 100%;
@@ -191,12 +191,11 @@ height:50px;
 }
 .rectangle3 h1{
 	padding-top:12px;
-    color:#FFFDE1;
+    color:white;
 	text-align: center;
 	justify-content: center;
-	color:white;
 	font-size: 16pt;
-	font-family: ONE-Mobile-POP;
+	font-family: 'SUITE-Regular';
 }
 .rectangle4{
   height: 100%;
@@ -212,17 +211,17 @@ height:50px;
 	justify-content: center;
 	color:white;
 	font-size: 16pt;
-	font-family: ONE-Mobile-POP;
+	font-family: 'SUITE-Regular';
 }
 
 
 .header-link:link{
 	text-decoration: none;
-    color:#FFFDE1;
+    color:white;
 }
 .header-link:visited{
 	text-decoration: none;
-    color:#FFFDE1;
+    color:white;
 }
 .login
 {

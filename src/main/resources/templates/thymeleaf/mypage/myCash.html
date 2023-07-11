@@ -41,6 +41,34 @@ td label {
 menuicon {
 	
 }
+
+</style>
+<style type="text/css">
+@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+.btn-header{
+	color: white;
+	margin-top: 30px;
+}
+body {
+    margin: 0;
+    font-family: 'SUITE-Regular';
+}
+input[type="submit"], input[type="reset"], input[type="button"], button, .button{
+	color:white;
+}
+.content{
+	width:80%;
+	margin:auto;
+}
+form{
+	margin:0;
+}
+
 </style>
 <script th:inline="javascript">
     /* 알림 메시지를 받아서 알림 창을 띄움 */
@@ -62,49 +90,49 @@ menuicon {
 		<!-- Wrapper -->
 		<div id="wrapper">
 			<div class="col-lg-11"
-				style="position: relative; float: right; margin-top: 130px; margin-left: 150px;">
+				style="margin-top: 130px; margin-left: 90px;">
 				<section>	
-					<div class="content" style="margin-left: 20px;">
+					<div class="content2">
 						<ul class="actions">
 							<!-- <li><a href="/racket/mypage/info" class="button">내정보</a></li> -->
 							<li>
 								<form action="/racket/mypage/info" method="post">
 									<input type="hidden" th:value="${session.user.memberId}"
 										name="memberId" id="memberId">
-									<button type="submit">내정보</button>
+									<button type="submit" class="button btn-header">내정보</button>
 								</form>
 							</li>
-							<li><a href="/racket/mypage/change" class="button">정보수정</a></li>
-							<li><a href="/racket/mypage/passChange" class="button">비밀번호변경</a>
+							<li><a href="/racket/mypage/change" class="button btn-header">정보수정</a></li>
+							<li><a href="/racket/mypage/passChange" class="button btn-header">비밀번호변경</a>
 
 							</li>
-							<li><a href="/racket/mypage/cash?pageNo=0" class="button">충전</a></li>
+							<li><a href="/racket/mypage/cash?pageNo=0" class="button btn-header">충전</a></li>
 							<li>
 								<form action="/racket/mypage/reservation" method="post">
 									<input type="hidden" th:value="${session.user.memberId}"
 										name="memberId" id="memberId">
-									<button type="submit">예약보기</button>
+									<button type="submit" class="button btn-header">예약</button>
 								</form>
 							</li>
 							<li>
 								<form action="/racket/mypage/match" method="post">
 									<input type="hidden" th:value="${session.user.memberId}"
 										name="memberId" id="memberId">
-									<button type="submit">매칭보기</button>
+									<button type="submit" class="button btn-header">매칭</button>
 								</form>
 							</li>
 							<li th:if="${session.user.memberAuth == 1}">
 		                        <form action="/racket/mypage/training" method="post">
 		                                <input type="hidden" th:value="${session.user.memberId}"
 		                                    name="memberId" id="memberId">
-		                                <button type="submit">개설강좌보기</button>
+		                                <button type="submit" class="button btn-header">개설강좌</button>
 		                         </form>
 		                    </li>
 							<li>
 								<form action="/racket/mypage/trainingAttend" method="post">
 									<input type="hidden" th:value="${session.user.memberId}"
 										name="memberId" id="memberId">
-									<button type="submit">강습보기</button>
+									<button type="submit" class="button btn-header">강습</button>
 								</form>
 							</li>
 						</ul>
@@ -114,18 +142,18 @@ menuicon {
 
 					  <ul class="actions"
                         style="flex-direction: row; justify-content: space-between;">
-                        <li style="display: flex; align-items: center;"><h2
+                        <li style="display: flex; align-items: center;"><h3
                                 style="margin: 0px;">
                                 총 캐쉬 : <span th:text="${totalAmount}"></span>
-                            </h2></li>
+                            </h3></li>
                         <li><a href="#" onclick="openPopup()"> <input
                                 type="button" name="submit" id="submit" value="캐쉬충전" />
                         </a></li>
                     </ul>
                 </div>
-			</div>
+			
 			<!-- Table -->
-			<div class="col-lg-11"
+			<div class="col-lg-12"
 				style="position: relative; float: right; margin-top: 30px; margin-left: 150px;">
 				<div class="box" style="padding: 20px; margin: 20px;">
 					<div class="table-wrapper">
@@ -146,9 +174,11 @@ menuicon {
 									<td><span th:text="${cash.cashDate }"></span></td>
 
 								</tr>
-
+								
 							</tbody>
+							
 						</table>
+						</div>
 						<!-- 페이지네이션 -->
             <div style="margin-top:10px; margin-bottom: 35px">
             	<nav aria-label="Page navigation example">
