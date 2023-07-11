@@ -53,9 +53,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 matchingCounts[month]++;
             } else if (reservation.reservationStatus === '매칭완료') {
                 completedCounts[month]++;
-            } else if (reservation.reservationStatus === '경기종료') {
-                endedCounts[month]++;
-            }
+            } 
+//            else if (reservation.reservationStatus === '경기종료') {
+//                endedCounts[month]++;
+//            }
         });
 
         var chartData = {
@@ -70,12 +71,12 @@ document.addEventListener("DOMContentLoaded", function() {
                     label: '매칭완료',
                     data: completedCounts,
                     backgroundColor: 'rgba(54, 162, 235, 0.5)'
-                },
-                {
-                    label: '경기종료',
-                    data: endedCounts,
-                    backgroundColor: 'rgba(255, 99, 132, 0.5)'
                 }
+//                {
+//                    label: '경기종료',
+//                    data: endedCounts,
+//                    backgroundColor: 'rgba(255, 99, 132, 0.5)'
+//                }
             ]
         };
 

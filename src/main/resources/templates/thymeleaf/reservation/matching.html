@@ -17,7 +17,8 @@
 <noscript>
 	<link rel="stylesheet" href="/racket/common/assets/css/noscript.css" />
 </noscript>
-
+<link rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 <!-- 달력 -->
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -47,6 +48,24 @@
     color: red;
     font-size: 12px;
     margin-top: 5px;
+}
+footer{
+	margin-left: 15%;
+}
+.swiper-slide{
+	height:500px;
+	Display: Flex;
+	justify-content: center;
+}
+@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+body {
+    margin: 0;
+    font-family: 'SUITE-Regular';
 }
 </style>
 
@@ -147,14 +166,17 @@
 		<div class="image fit">
 			<!-- 체육관 사진 -->
 			<div class="swiper mySwiper">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide" th:each="file : ${stadium.files}">
-						<img th:src="${file.fileStorename[0]}" alt="Stadium Image">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide" th:each="file : ${stadium.files}">
+							<img th:src="@{'/download/racket/' + ${file.fileStorename}}" alt="Stadium Image" class="stadiumImg">
+						</div>
 					</div>
-				       <div th:if="${stadium.files.size() == 0}">
-				           <img src="/racket/images/reservationPark.jpg" alt="Alternative Image">
-			        </div>
-				</div>
+					<!-- 대체 이미지 -->
+					<div th:if="${stadium.files.size() == 0}">
+						<div class="swiper-slide" style="width: 86.7%;">
+						   <img src="https://picsum.photos/1321/500">
+						</div>
+					</div>
 				<div class="swiper-button-next"></div>
 				<div class="swiper-button-prev"></div>
 				<div class="swiper-pagination"></div>
@@ -196,7 +218,8 @@
 	<script src="/racket/common/assets/js/util.js"></script>
 	<script src="/racket/common/assets/js/main.js"></script>
 	<script src="/racket/common/assets/js/scroll.js"></script>
-
+	<script type="text/javascript"
+			src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	<!-- Note: Only needed for demo purposes. Delete for production sites. -->
 	<script src="/racket/common/assets/js/demo.js"></script>
 
@@ -207,7 +230,24 @@
 	<script src="/racket/common/assets/js/bootstrap.min.js"></script>
 	<script src="/racket/common/assets/js/rome.js"></script>
 	<script src="/racket/common/assets/js/main.js"></script>
-</div>
+	<script type="text/javascript">
+			var swiper = new Swiper(".mySwiper", {
+			    spaceBetween : 30,
+			    centeredSlides : true,
+			    autoplay : {
+			        delay : 2500,
+			        disableOnInteraction : false,
+			    },
+			    pagination : {
+			        el : ".swiper-pagination",
+			        clickable : true,
+			    },
+			    navigation : {
+			        nextEl : ".swiper-button-next",
+			        prevEl : ".swiper-button-prev",
+			    },
+			});
+			</script>
 </div>
 </th:block>
 </body>

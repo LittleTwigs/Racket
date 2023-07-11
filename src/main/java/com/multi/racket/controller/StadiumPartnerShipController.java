@@ -81,7 +81,9 @@ public class StadiumPartnerShipController {
 		}
 		@PostMapping("/associate/addcourt")
 		public String addcourt(int stadiumNo, StadiumcourtDTO court, CourtOperatingHoursListDTO hours) {
-		    service.insert_court(stadiumNo, court, hours);
+//		    service.insert_court(stadiumNo, court, hours);
+			service.addcourt(stadiumNo, court);
+			service.addcourthour(hours, court);
 		    return "thymeleaf/signup/popup_response";
 		}
 }

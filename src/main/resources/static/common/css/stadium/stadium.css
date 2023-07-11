@@ -23,7 +23,12 @@ body {
 	text-align:center;
 	margin:15px;
 }
-
+a:link:hover{
+	text-decoration: underline;
+}
+a:link{
+	text-decoration: none;
+}
 .stadiumtable {
 	display: flex;
 	align-items: flex-start;
@@ -853,4 +858,12 @@ a:hover {
 .pagination li a {
 	text-decoration: none;
 	color: black;
+}
+.page-item.active .page-link{
+	background-color: #154c43;
+	border-color: #154c43;
+	
+}
+.page-link:hover{
+	color: #154c43;
 }

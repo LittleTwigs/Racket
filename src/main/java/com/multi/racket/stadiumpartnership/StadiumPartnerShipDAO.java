@@ -21,4 +21,5 @@ public interface StadiumPartnerShipDAO {
 	public StadiumDTO find_stadiumno(int stadiumNo);
 	public StadiumcourtDTO addcourt(int stadiumNo,StadiumcourtDTO court);
 	public CourtoperatinghoursDTO addcourthour(CourtOperatingHoursListDTO hours,StadiumcourtDTO court);
+	public StadiumcourtDTO createNewStadiumCourt(int courtNo, String courtName, int stadiumNo);
 }
